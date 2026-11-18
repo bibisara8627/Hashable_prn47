@@ -1,0 +1,39 @@
+# DEBUG LOG – STUDENT MARKS HASH TABLE
+
+**Project:** Data Structures – Internal Activity 3, Question 2  
+**PRN:** 202501100047  
+**Scenario:** Student Marks  
+**Hashing Method:** Mid-Square Method  
+**Collision Handling:** Separate Chaining  
+**Table Size:** 10  
+**Dataset Size:** 20  
+
+## 1. Compilation
+
+- Command used: `g++ main.cpp -o main`
+- Result: Compilation successful.
+- Errors: No compilation errors.
+
+## 2. Debugging and Testing Log
+
+| No. | Operation Tested | Observation | Status |
+|---|---|---|---|
+| 1 | Generate student marks | 20 student records generated successfully. | Passed |
+| 2 | Mid-Square hashing | Hash indices calculated using the square of each mark. | Passed |
+| 3 | Separate chaining | Collisions handled using linked lists. | Passed |
+| 4 | Display hash table | All records displayed in their respective buckets. | Passed |
+| 5 | Search existing mark | Student record found successfully. | Passed |
+| 6 | Search unavailable mark (50) | Record not found message displayed. | Passed |
+| 7 | Delete existing mark (84) | Student17 deleted successfully. | Passed |
+| 8 | Display after deletion | Deleted record no longer appeared in the table. | Passed |
+
+## 3. Issues and Corrections
+
+- Verified the hash function and bucket indices.
+- Checked linked-list insertion and traversal.
+- Verified successful and unsuccessful search operations.
+- Checked deletion and updated hash-table display.
+
+## 4. Final Result
+
+The program compiled and executed successfully. All implemented operations were tested and produced the expected results.

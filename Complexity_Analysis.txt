@@ -1,0 +1,43 @@
+# COMPLEXITY ANALYSIS – STUDENT MARKS HASH TABLE
+
+**PRN:** 202501100047  
+**Hashing Method:** Mid-Square Method  
+**Collision Handling:** Separate Chaining  
+**Table Size:** 10  
+**Dataset Size:** 20  
+
+## 1. Time Complexity
+
+| Operation | Best Case | Average Case | Worst Case |
+|---|---|---|---|
+| Generate Marks | O(N) | O(N) | O(N) |
+| Hash Function | O(1) | O(1) | O(1) |
+| Insert | O(1) | O(1) | O(N) |
+| Search | O(1) | O(1) | O(N) |
+| Delete | O(1) | O(1) | O(N) |
+| Display Hash Table | O(N + M) | O(N + M) | O(N + M) |
+
+Where:
+- N = Number of student records.
+- M = Hash table size.
+
+## 2. Space Complexity
+
+| Component | Space Complexity |
+|---|---|
+| Student Marks Array | O(N) |
+| Hash Table | O(M) |
+| Linked List Nodes | O(N) |
+| Total Auxiliary Storage | O(N + M) |
+
+## 3. Explanation
+
+- **Insertion:** Usually takes constant time when collisions are limited. In the worst case, all records may be stored in one chain.
+- **Searching:** Depends on the number of nodes in the selected bucket.
+- **Deletion:** Requires searching for the record before removing its node.
+- **Display:** Visits all buckets and stored records.
+- **Separate Chaining:** Uses linked lists to handle collisions.
+
+## 4. Conclusion
+
+The hash table provides efficient average-case insertion, searching, and deletion. Separate chaining resolves collisions effectively, while the worst-case time complexity of these operations is O(N).

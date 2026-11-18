@@ -1,0 +1,83 @@
+# TRACE REPORT – STUDENT MARKS HASH TABLE
+
+**PRN:** 202501100047  
+**Seed:** 47  
+**Table Size:** 10  
+**Dataset Size:** 20  
+**Hashing Method:** Mid-Square Method  
+**Collision Handling:** Separate Chaining
+
+## 1. Hash Function
+
+The Mid-Square method calculates the square of the key and extracts the middle digit.
+
+\[
+h(k) = \text{Middle digit of } k^2 \bmod 10
+\]
+
+**Example:**
+
+For mark 84:
+
+\[
+84^2 = 7056
+\]
+
+Middle digit = 5
+
+\[
+h(84) = 5
+\]
+
+## 2. Insertion Trace
+
+All 20 student records were inserted into the hash table using separate chaining.
+
+| Index | Student Records |
+|---|---|
+| 0 | Student11(90) → Student04(97) → Student03(98) → Student02(99) → Student01(100) |
+| 1 | Student05(96) |
+| 2 | Student19(82) → Student16(85) → Student12(89) → Student06(95) |
+| 3 | Student07(94) |
+| 4 | Student13(88) → Student08(93) |
+| 5 | Student17(84) |
+| 6 | Student20(81) → Student14(87) → Student09(92) |
+| 7 | NULL |
+| 8 | Student18(83) → Student10(91) |
+| 9 | Student15(86) |
+
+## 3. Search Trace
+
+**Search Key:** 84
+
+1. Calculate hash index: h(84) = 5.
+2. Access bucket 5.
+3. Traverse the linked list.
+4. Match found: Student17.
+5. Display the student record.
+
+**Result:** Student17 found successfully.
+
+**Unsuccessful Search:** For key 50, the program displayed "Student record not found!"
+
+## 4. Deletion Trace
+
+**Deletion Key:** 84
+
+1. Calculate hash index: h(84) = 5.
+2. Access bucket 5.
+3. Find Student17 in the linked list.
+4. Delete the matching node.
+5. Update the linked list.
+
+**Result:** Student17 deleted successfully.
+
+After deletion:
+
+| Index | Updated Contents |
+|---|---|
+| 5 | NULL |
+
+## 5. Final Observation
+
+The program successfully demonstrated mark generation, Mid-Square hashing, insertion using separate chaining, searching, and deletion. The hash table was updated correctly after deletion.
