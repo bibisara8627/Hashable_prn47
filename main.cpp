@@ -119,6 +119,36 @@ void searchStudent(int key) {
 
     cout << "Student record not found!" << endl;
 }
+// Delete student record by marks
+void deleteStudent(int key) {
+    int hashIndex = midSquareHash(key);
+
+    Node* temp = hashTable[hashIndex];
+    Node* prev = nullptr;
+
+    while (temp != nullptr) {
+        if (temp->mark == key) {
+
+            if (prev == nullptr) {
+                hashTable[hashIndex] = temp->next;
+            }
+            else {
+                prev->next = temp->next;
+            }
+
+            cout << "\nStudent Deleted: "
+                 << NAMES[temp->studentIndex] << endl;
+
+            delete temp;
+            return;
+        }
+
+        prev = temp;
+        temp = temp->next;
+    }
+
+    cout << "\nStudent record not found!" << endl;
+}
 
 int main() {
     cout << "Student Marks Hash Table" << endl;
@@ -150,6 +180,16 @@ int main() {
     cin >> searchKey;
 
     searchStudent(searchKey);
+    // Delete student record
+    int deleteKey;
+
+    cout << "\nEnter marks to delete: ";
+    cin >> deleteKey;
+
+    deleteStudent(deleteKey);
+
+    // Display updated hash table
+    displayHashTable();
 
     return 0;
     
