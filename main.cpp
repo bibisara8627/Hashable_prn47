@@ -31,7 +31,7 @@ int marks[N];
 // Generate student marks using seed
 void generateMarks() {
     for (int i = 0; i < N; i++) {
-        marks[i] = 35 + ((SEED * (i + 1) * 7) % 66);
+        marks[i] = (SEED + 13 * i) % 100;
     }
 }
 
