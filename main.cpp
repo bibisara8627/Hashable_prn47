@@ -28,6 +28,21 @@ const string NAMES[N] = {
 
 // Array to store student marks
 int marks[N];
+// Generate student marks using seed
+void generateMarks() {
+    for (int i = 0; i < N; i++) {
+        marks[i] = 35 + ((SEED * (i + 1) * 7) % 66);
+    }
+}
+
+// Display student marks
+void displayMarks() {
+    cout << "\nGenerated Student Marks:\n";
+
+    for (int i = 0; i < N; i++) {
+        cout << NAMES[i] << " : " << marks[i] << endl;
+    }
+}
 
 int main() {
     cout << "Student Marks Hash Table" << endl;
@@ -37,6 +52,8 @@ int main() {
     cout << "Dataset Size: " << N << endl;
 
     cout << "\nProject setup completed." << endl;
+    generateMarks();
+    displayMarks();
 
     return 0;
 }
