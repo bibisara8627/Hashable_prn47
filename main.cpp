@@ -97,6 +97,28 @@ void displayHashTable() {
         cout << "NULL" << endl;
     }
 }
+// Search student by marks
+void searchStudent(int key) {
+    int hashIndex = midSquareHash(key);
+
+    cout << "\nSearching for marks: " << key << endl;
+    cout << "Hash Index: " << hashIndex << endl;
+
+    Node* temp = hashTable[hashIndex];
+
+    while (temp != nullptr) {
+        if (temp->mark == key) {
+            cout << "Student Found: "
+                 << NAMES[temp->studentIndex] << endl;
+            cout << "Marks: " << temp->mark << endl;
+            return;
+        }
+
+        temp = temp->next;
+    }
+
+    cout << "Student record not found!" << endl;
+}
 
 int main() {
     cout << "Student Marks Hash Table" << endl;
@@ -121,6 +143,13 @@ int main() {
 
     // Display Separate Chaining Hash Table
     displayHashTable();
+    // Search student records
+    int searchKey;
+
+    cout << "\nEnter marks to search: ";
+    cin >> searchKey;
+
+    searchStudent(searchKey);
 
     return 0;
     
