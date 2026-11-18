@@ -52,6 +52,51 @@ int midSquareHash(int key) {
 
     return (str[middle] - '0') % M;
 }
+// Node structure for Separate Chaining
+struct Node {
+    int studentIndex;
+    int mark;
+    Node* next;
+};
+
+// Hash table with linked list heads
+Node* hashTable[M] = {nullptr};
+// Insert student using Separate Chaining
+void insertStudent(int index) {
+    int hashIndex = midSquareHash(marks[index]);
+
+    Node* newNode = new Node;
+    newNode->studentIndex = index;
+    newNode->mark = marks[index];
+    newNode->next = nullptr;
+
+    if (hashTable[hashIndex] == nullptr) {
+        hashTable[hashIndex] = newNode;
+    }
+    else {
+        newNode->next = hashTable[hashIndex];
+        hashTable[hashIndex] = newNode;
+    }
+}
+// Display Hash Table
+void displayHashTable() {
+    cout << "\nHash Table using Separate Chaining:\n";
+
+    for (int i = 0; i < M; i++) {
+        cout << "Index " << i << " : ";
+
+        Node* temp = hashTable[i];
+
+        while (temp != nullptr) {
+            cout << NAMES[temp->studentIndex]
+                 << "(" << temp->mark << ") -> ";
+
+            temp = temp->next;
+        }
+
+        cout << "NULL" << endl;
+    }
+}
 
 int main() {
     cout << "Student Marks Hash Table" << endl;
@@ -69,6 +114,14 @@ int main() {
         cout << NAMES[i] << " | Marks: " << marks[i]
             << " | Hash Index: " << midSquareHash(marks[i]) << endl;
     }
+    // Insert all students into Hash Table
+    for (int i = 0; i < N; i++) {
+        insertStudent(i);
+    }
+
+    // Display Separate Chaining Hash Table
+    displayHashTable();
 
     return 0;
+    
 }
