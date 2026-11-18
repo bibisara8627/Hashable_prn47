@@ -43,6 +43,15 @@ void displayMarks() {
         cout << NAMES[i] << " : " << marks[i] << endl;
     }
 }
+// Mid-Square Hash Function
+int midSquareHash(int key) {
+    long long square = (long long)key * key;
+    string str = to_string(square);
+
+    int middle = str.length() / 2;
+
+    return (str[middle] - '0') % M;
+}
 
 int main() {
     cout << "Student Marks Hash Table" << endl;
@@ -54,6 +63,12 @@ int main() {
     cout << "\nProject setup completed." << endl;
     generateMarks();
     displayMarks();
+    cout << "\nMid-Square Hash Values:\n";
+
+    for (int i = 0; i < N; i++) {
+        cout << NAMES[i] << " | Marks: " << marks[i]
+            << " | Hash Index: " << midSquareHash(marks[i]) << endl;
+    }
 
     return 0;
 }
